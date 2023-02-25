@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Frontend Mentor | Interactive rating component</title>
+
+  <style>
+    html{
+      font-family: "Overpass";
+      font-size: 15px;
+    }
+  </style>
+
+</head>
+<body>
+  <main>
+    <section id="sec__top">
+      <div class="star__img">
+        <img src="images/icon-star.svg" alt="star">
+      </div>
+      <h1>How did we do?</h1>
+      <p>Please let us know how we did with your support request. All feedback is appreciated to help us improve our offering!</p>
+
+      <form>
+        <fieldset>
+          <input type="radio" name="rating" id="rate1" value="1">
+          <label for="rate1">1</label>
+
+          <input type="radio" name="rating" id="rate2" value="2">
+          <label for="rate2">2</label>
+
+          <input type="radio" name="rating" id="rate3" value="3">
+          <label for="rate3">3</label>
+
+          <input type="radio" name="rating" id="rate4" value="4">
+          <label for="rate4">4</label>
+
+          <input type="radio" name="rating" id="rate5" value="5">
+          <label for="rate5">5</label>
+        </fieldset>
+
+        <button class="btn" onclick="ratingPart()">Submit</button>
+
+      </form>
+
+    </section>
+
+    <section id="sec__pass" class="hidden">
+      <div class="phone__img">
+        <img src="images/illustration-thank-you.svg" alt="phone">
+      </div>
+      <p id="rating__view">You selected 0 out of 5</p>
+      <h2>Thank you!</h2>
+      <p>We appreciate you taking the time to give a rating. If you ever need more support, don’t hesitate to get in touch!</p>
+    </section>
+  
+
+
+  </main>
+
+  <script>
+    function ratingPart(){
+      event.preventDefault();
+
+      var ratingValue = document.querySelector("input[type='radio']:checked").value;
+
+      var ratingResult = document.getElementById("rating__view");
+
+      ratingResult.innerHTML = "You selected " + ratingValue + " out of 5";
+
+      /*console.log(ratingValue);*/
+
+      document.getElementById("sec__pass").classList.remove("hidden");
+
+      document.getElementById("sec__top").classList.add("hidden")
+      
+    }
+
+
+  </script> 
+
+</body>
+</html>
